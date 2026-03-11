@@ -1,0 +1,8 @@
+{
+  "name": "WheelReward.Spin.Installer",
+  "references": [
+    "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+    "GUID:69f9a5f6122e4e4095f9d29185d435fd",
+    "GUID:d9ccffea75134526b23c727e21651a74"
+  ]
+}
