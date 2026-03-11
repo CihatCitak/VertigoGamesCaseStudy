@@ -6827,6 +6827,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ui_wheel_bronze
       objectReference: {fileID: 0}
+    - target: {fileID: 9030503586114369866, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}
 --- !u!224 &758043252 stripped
@@ -6945,6 +6949,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9019984389812141255, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
 --- !u!224 &3907430209376983401 stripped
@@ -7049,6 +7057,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1920027937401880982, guid: 7ee6ccf5aab29ed4a82115462b814cb3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9019984389812141255, guid: 7ee6ccf5aab29ed4a82115462b814cb3, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
