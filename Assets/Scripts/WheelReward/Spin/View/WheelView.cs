@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Zenject;
@@ -8,15 +9,19 @@ namespace WheelReward.Spin.View
 {
     public class WheelView : MonoBehaviour
     {
-        private const int SlotCount = 8;
-
+        //[Header("Tween Attributes")] 
         [SerializeField] private WheelTweenData tweenData;
         [SerializeField] private Transform wheelTransform;
+
+        //[Header("Reward Settings")] 
+        [SerializeField] private WheelRewardConfig wheelRewardConfig;
+        [SerializeField] private List<WheelRewardView> wheelRewardViews;
 
         [Inject] private SignalBus _signalBus;
 
         private Tween _idleTween;
         private Tween _spinTween;
+        private const int SlotCount = 8;
 
         #region Lifecycle
 
@@ -32,6 +37,7 @@ namespace WheelReward.Spin.View
 
         private void Start()
         {
+            SetupRewards();
             StartIdleTween();
         }
 
@@ -43,7 +49,49 @@ namespace WheelReward.Spin.View
 
         #endregion
 
-        #region Idle
+        #region Setup
+
+        private void OnValidate()
+        {
+            if (wheelRewardConfig == null || wheelRewardViews == null) return;
+
+            var rewardCount = wheelRewardConfig.Rewards.Count;
+            var viewCount = wheelRewardViews.Count;
+
+            if (rewardCount == viewCount) return;
+            
+            Debug.LogWarning(
+                $"[WheelView] Reward count ({rewardCount}) and view count ({viewCount}) do not match!");
+
+            Debug.LogWarning(
+                viewCount > rewardCount
+                    ? $"[WheelView] Trimmed {viewCount - rewardCount} excess view(s) from the list."
+                    : $"[WheelView] Missing {rewardCount - viewCount} view(s). Please assign them in the Inspector.");
+        }
+
+        private void SetupRewards()
+        {
+            if (wheelRewardConfig == null || wheelRewardViews == null) return;
+
+            var rewardCount = wheelRewardConfig.Rewards.Count;
+            var viewCount = wheelRewardViews.Count;
+
+            if (rewardCount != viewCount)
+            {
+                Debug.LogError(
+                    $"[WheelView] Cannot setup rewards: count mismatch (rewards: {rewardCount}, views: {viewCount}).");
+                return;
+            }
+
+            for (var i = 0; i < rewardCount; i++)
+            {
+                wheelRewardViews[i].Setup(wheelRewardConfig.Rewards[i]);
+            }
+        }
+
+        #endregion
+
+        #region Idle Tween
 
         private void StartIdleTween()
         {
@@ -56,7 +104,7 @@ namespace WheelReward.Spin.View
 
         #endregion
 
-        #region Spin
+        #region Spin Tween
 
         private void OnSpinStartedHandler(OnSpinStarted signal)
         {
