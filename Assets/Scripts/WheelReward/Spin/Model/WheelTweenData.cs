@@ -6,10 +6,20 @@ namespace WheelReward.Spin.Model
     [CreateAssetMenu(fileName = "WheelTweenData", menuName = "WheelReward/WheelTweenData")]
     public class WheelTweenData : ScriptableObject
     {
-        [SerializeField] private float speed = 90f;
-        [SerializeField] private Ease ease = Ease.Linear;
+        [Header("Idle Tween")]
+        [SerializeField] private float idleTweenSpeed = 90f;
+        [SerializeField] private Ease idleTweenEase = Ease.Linear;
 
-        public float Speed => speed;
-        public Ease Ease => ease;
+        [Header("Spin Tween")]
+        [SerializeField] private float spinTweenDuration = 3f;
+        [SerializeField] private Ease spinTweenEase = Ease.OutQuart;
+        [SerializeField] private int spinTweenExtraRotations = 5;
+
+        public float IdleTweenSpeed => idleTweenSpeed;
+        public Ease IdleTweenEase => idleTweenEase;
+
+        public float SpinTweenDuration => spinTweenDuration;
+        public Ease SpinTweenEase => spinTweenEase;
+        public int SpinTweenExtraRotations => spinTweenExtraRotations;
     }
 }

@@ -12,5 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9, type: 3}
   m_Name: SO_WheelTweenData
   m_EditorClassIdentifier: 
-  speed: 45
-  ease: 1
+  idleTweenSpeed: 45
+  idleTweenEase: 1
+  spinTweenDuration: 3
+  spinTweenEase: 12
+  spinTweenExtraRotations: 5

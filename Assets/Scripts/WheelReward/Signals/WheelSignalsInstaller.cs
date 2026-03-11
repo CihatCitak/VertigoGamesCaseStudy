@@ -9,6 +9,7 @@ namespace WheelReward.Signals
             SignalBusInstaller.Install(Container);
             
             Container.DeclareSignal<OnSpinAvailable>();
+            Container.DeclareSignal<OnSpinStarted>();
         }
     }
 }

@@ -6831,7 +6831,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6369855588542067986, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}
 --- !u!224 &758043252 stripped
 RectTransform:
@@ -6888,18 +6889,6 @@ PrefabInstance:
     - target: {fileID: 1920027937401880982, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920027937401880982, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920027937401880982, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1920027937401880982, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1920027937401880982, guid: e04609c27e3244247a4ee1ffaf411b86, type: 3}
       propertyPath: m_LocalPosition.x

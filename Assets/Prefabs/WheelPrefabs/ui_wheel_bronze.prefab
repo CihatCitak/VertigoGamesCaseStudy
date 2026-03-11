@@ -200,7 +200,6 @@ GameObject:
   - component: {fileID: 9030503586114369866}
   - component: {fileID: 7410206680271620636}
   - component: {fileID: 1310975852482779186}
-  - component: {fileID: 6369855588542067986}
   m_Layer: 5
   m_Name: ui_wheel_bronze
   m_TagString: Untagged
@@ -267,20 +266,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &6369855588542067986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3608979859374674217}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenData: {fileID: 11400000, guid: 62bd80640206e5949bcab09ccb92466a, type: 2}
-  wheelTransform: {fileID: 0}
 --- !u!1 &4377064822976296106
 GameObject:
   m_ObjectHideFlags: 0
