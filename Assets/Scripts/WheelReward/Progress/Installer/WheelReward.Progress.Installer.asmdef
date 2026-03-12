@@ -1,0 +1,8 @@
+{
+    "name": "WheelReward.Progress.Installer",
+    "references": [
+        "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+        "GUID:b1c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6",
+        "GUID:c2d3e4f5a6b7c8d9e0f1a2b3c4d5e6f7"
+    ]
+}
