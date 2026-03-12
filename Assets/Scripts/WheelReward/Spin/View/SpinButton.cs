@@ -1,6 +1,5 @@
 using Zenject;
 using UnityEngine;
-using UnityEngine.UI;
 using WheelReward.Signals;
 using UnityEngine.EventSystems;
 using WheelReward.Spin.Interface;
@@ -9,21 +8,19 @@ namespace WheelReward.Spin.View
 {
     public class SpinButton : MonoBehaviour, IPointerDownHandler
     {
-        [SerializeField] private Image spinImage;
-        
         [Inject] private ISpinStarter _spinStarter;
         [Inject] private readonly SignalBus _signalBus;
 
         #region Signal Subscriptions
 
-        private void OnEnable()
+        private void Awake()
         {
-            _signalBus.Subscribe<OnSpinAvailable>(OpenButton);
+            _signalBus.Subscribe<OnSpinEnd>(OpenButton);
         }
 
-        private void OnDisable()
+        private void OnDestroy()
         {
-            _signalBus.TryUnsubscribe<OnSpinAvailable>(OpenButton);
+            _signalBus.TryUnsubscribe<OnSpinEnd>(OpenButton);
         }
 
         #endregion
@@ -39,12 +36,12 @@ namespace WheelReward.Spin.View
 
         private void CloseButton()
         {
-            spinImage.enabled = false;
+            gameObject.SetActive(false);
         }
 
         private void OpenButton()
         {
-            spinImage.enabled = true;
+            gameObject.SetActive(true);
         }
 
         #endregion

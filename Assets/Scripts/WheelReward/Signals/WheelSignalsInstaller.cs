@@ -8,8 +8,8 @@ namespace WheelReward.Signals
         {
             SignalBusInstaller.Install(Container);
             
-            Container.DeclareSignal<OnSpinAvailable>();
-            Container.DeclareSignal<OnSpinStarted>();
+            Container.DeclareSignal<OnSpinEnd>();
+            Container.DeclareSignal<OnSpinStart>();
         }
     }
 }

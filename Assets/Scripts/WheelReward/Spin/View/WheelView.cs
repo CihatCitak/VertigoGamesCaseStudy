@@ -1,13 +1,13 @@
-using System.Collections.Generic;
-using UnityEngine;
 using DG.Tweening;
-using Zenject;
-using WheelReward.Signals;
+using UnityEngine;
 using WheelReward.Spin.Model;
+using Cysharp.Threading.Tasks;
+using WheelReward.Spin.Interface;
+using System.Collections.Generic;
 
 namespace WheelReward.Spin.View
 {
-    public class WheelView : MonoBehaviour
+    public class WheelView : MonoBehaviour, IWheelView
     {
         //[Header("Tween Attributes")] 
         [SerializeField] private WheelTweenData tweenData;
@@ -17,23 +17,11 @@ namespace WheelReward.Spin.View
         [SerializeField] private WheelRewardConfig wheelRewardConfig;
         [SerializeField] private List<WheelRewardView> wheelRewardViews;
 
-        [Inject] private SignalBus _signalBus;
-
         private Tween _idleTween;
         private Tween _spinTween;
         private const int SlotCount = 8;
 
         #region Lifecycle
-
-        private void OnEnable()
-        {
-            _signalBus.Subscribe<OnSpinStarted>(OnSpinStartedHandler);
-        }
-
-        private void OnDisable()
-        {
-            _signalBus.TryUnsubscribe<OnSpinStarted>(OnSpinStartedHandler);
-        }
 
         private void Start()
         {
@@ -106,12 +94,7 @@ namespace WheelReward.Spin.View
 
         #region Spin Tween
 
-        private void OnSpinStartedHandler(OnSpinStarted signal)
-        {
-            Spin(signal.SlotIndex);
-        }
-
-        private void Spin(int slotIndex)
+        public async UniTask Spin(int slotIndex)
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
@@ -129,11 +112,12 @@ namespace WheelReward.Spin.View
                 .DORotate(new Vector3(0f, 0f, -totalRotation), tweenData.SpinTweenDuration, RotateMode.WorldAxisAdd)
                 .SetEase(tweenData.SpinTweenEase)
                 .OnComplete(OnSpinComplete);
+
+            await _spinTween.ToUniTask();
         }
 
         private void OnSpinComplete()
         {
-            _signalBus.Fire<OnSpinAvailable>();
             StartIdleTween();
         }
 
