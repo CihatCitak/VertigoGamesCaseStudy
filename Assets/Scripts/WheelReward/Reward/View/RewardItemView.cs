@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace WheelReward.Reward.View
 {
@@ -23,9 +23,10 @@ namespace WheelReward.Reward.View
             countText.text = count.ToString();
         }
 
-        public void UpdateCount(int newCount)
+        public void UpdateCount(int addedCount)
         {
             _countTween?.Kill();
+            var targetCount = _displayedCount + addedCount;
             _countTween = DOTween
                 .To(() => _displayedCount,
                     x =>
@@ -33,7 +34,7 @@ namespace WheelReward.Reward.View
                         _displayedCount = x;
                         countText.text = x.ToString();
                     },
-                    newCount,
+                    targetCount,
                     0.5f)
                 .SetEase(Ease.OutQuad);
         }
