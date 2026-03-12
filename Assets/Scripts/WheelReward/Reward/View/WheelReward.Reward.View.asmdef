@@ -1,0 +1,9 @@
+{
+  "name": "WheelReward.Reward.View",
+  "references": [
+    "GUID:0d8beb7f090555447a6cf5ce9e54dbb4",
+    "GUID:36a2b235e3954d7ca548d96a465a6125",
+    "GUID:6055be8ebefd69e48b49212b09b47b2f",
+    "GUID:f7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2"
+  ]
+}
