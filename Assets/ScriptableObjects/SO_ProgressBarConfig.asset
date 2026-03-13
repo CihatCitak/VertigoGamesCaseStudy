@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3fbbc58fd764aa459d7451fd28f1425, type: 3}
   m_Name: SO_ProgressBarConfig
   m_EditorClassIdentifier: 
-  stepSize: 85
-  tweenDuration: 0.4
-  milestoneInterval: 5
   finalStage: 30
-  passedAlpha: 0.35
+  milestoneInterval: 5
+  barStepSize: 85
+  barTweenDuration: 0.5
+  barPassedAlpha: 0.35
   milestoneColor: {r: 0, g: 1, b: 0, a: 1}
   finalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}

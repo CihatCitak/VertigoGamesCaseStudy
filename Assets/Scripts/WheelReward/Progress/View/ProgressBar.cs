@@ -11,6 +11,7 @@ namespace WheelReward.Progress.View
         [SerializeField] private RectTransform stagesParent;
         [SerializeField] private List<ProgressBarItem> items;
         [SerializeField] private ProgressBarConfig config;
+        [SerializeField] private StageCountDisplay stageCountDisplay;
 
         private float _initialX;
         private Tween _slideTween;
@@ -38,6 +39,7 @@ namespace WheelReward.Progress.View
         {
             Slide(progress);
             UpdateItemColors(progress);
+            stageCountDisplay.PlayAnimation(progress);
         }
 
         #region Slide
@@ -45,12 +47,12 @@ namespace WheelReward.Progress.View
         private void Slide(int progress)
         {
             _slideTween?.Kill();
-            var targetX = _initialX - (progress - 1) * config.StepSize;
+            var targetX = _initialX - (progress - 1) * config.BarStepSize;
             _slideTween = DOTween
                 .To(() => stagesParent.anchoredPosition.x,
                     x => stagesParent.anchoredPosition = new Vector2(x, stagesParent.anchoredPosition.y),
                     targetX,
-                    config.TweenDuration)
+                    config.BarTweenDuration)
                 .SetEase(Ease.OutQuad);
         }
 
@@ -75,7 +77,7 @@ namespace WheelReward.Progress.View
             var passedIndex = progress - 2;
             if (passedIndex < 0 || passedIndex >= items.Count) return;
             
-            items[passedIndex].DimAlpha(config.PassedAlpha);
+            items[passedIndex].DimAlpha(config.BarPassedAlpha);
         }
 
         #endregion
