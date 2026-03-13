@@ -8,8 +8,8 @@ namespace WheelReward.Progress.View
 {
     public class ProgressBar : MonoBehaviour, IProgressBar
     {
-        [SerializeField] private RectTransform stagesParent;
         [SerializeField] private List<ProgressBarItem> items;
+        [SerializeField] private RectTransform stagesParent;
         [SerializeField] private ProgressBarConfig config;
         [SerializeField] private StageCountDisplay stageCountDisplay;
 

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   finalStage: 30
   milestoneInterval: 5
-  barStepSize: 85
-  barTweenDuration: 0.5
+  barStepSize: 90
+  barTweenDuration: 0.6
   barPassedAlpha: 0.35
   milestoneColor: {r: 0, g: 1, b: 0, a: 1}
   finalColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
