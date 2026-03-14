@@ -107,5 +107,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: ui_wheel_silver
       objectReference: {fileID: 0}
+    - target: {fileID: 4037143363580907563, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}
+      propertyPath: wheelRewardConfig
+      value: 
+      objectReference: {fileID: 11400000, guid: f7b7a30f8f694f54286334b7a2def068, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68c8bd598743e45408c7595867ea67ab, type: 3}

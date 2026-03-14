@@ -48,8 +48,8 @@ MonoBehaviour:
   silverWheelView: {fileID: 0}
   goldWheelView: {fileID: 0}
   bronzeRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
-  silverRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
-  goldRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
+  silverRewardConfig: {fileID: 11400000, guid: f7b7a30f8f694f54286334b7a2def068, type: 2}
+  goldRewardConfig: {fileID: 11400000, guid: f20e1ebe2dfbb884981e7927f9c472b5, type: 2}
 --- !u!1 &5068415736317012174
 GameObject:
   m_ObjectHideFlags: 0
