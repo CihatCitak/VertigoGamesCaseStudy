@@ -116,7 +116,7 @@ namespace WheelReward.Spin.View
 
             var slotAngle = 360f / SlotCount;
             var currentZ = wheelTransform.eulerAngles.z;
-            var targetSlotZ = (360f - slotIndex * slotAngle) % 360f;
+            var targetSlotZ = (slotIndex * slotAngle) % 360f;
 
             var degreesToTarget = (currentZ - targetSlotZ + 360f) % 360f;
             if (degreesToTarget < Mathf.Epsilon) degreesToTarget = 360f;
