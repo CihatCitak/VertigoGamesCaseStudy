@@ -1,8 +1,9 @@
 using DG.Tweening;
+using Zenject;
 using UnityEngine;
 using WheelReward.Progress.Model;
-using System.Collections.Generic;
 using WheelReward.Progress.Interface;
+using System.Collections.Generic;
 
 namespace WheelReward.Progress.View
 {
@@ -12,6 +13,8 @@ namespace WheelReward.Progress.View
         [SerializeField] private RectTransform stagesParent;
         [SerializeField] private ProgressBarConfig config;
         [SerializeField] private StageCountDisplay stageCountDisplay;
+
+        [Inject] private IProgressController _progressController;
 
         private float _initialX;
         private Tween _slideTween;
@@ -65,9 +68,10 @@ namespace WheelReward.Progress.View
             for (var i = 0; i < items.Count; i++)
             {
                 var stage = i + 1;
-                if (stage == config.FinalStage)
+                var stageType = _progressController.GetStageType(stage);
+                if (stageType == StageType.Final)
                     items[i].SetColor(config.FinalColor);
-                else if (stage == 1 || stage % config.MilestoneInterval == 0)
+                else if (stageType == StageType.Safe)
                     items[i].SetColor(config.MilestoneColor);
             }
         }
@@ -76,7 +80,7 @@ namespace WheelReward.Progress.View
         {
             var passedIndex = progress - 2;
             if (passedIndex < 0 || passedIndex >= items.Count) return;
-            
+
             items[passedIndex].DimAlpha(config.BarPassedAlpha);
         }
 

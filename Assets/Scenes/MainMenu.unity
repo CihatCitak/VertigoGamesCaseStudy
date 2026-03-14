@@ -144,6 +144,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c736023ebf6f41f4e8cb684ca46d75b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &376533558 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5577106647629486287, guid: 783b87525b315d84ea4ced4a170c3995, type: 3}
+  m_PrefabInstance: {fileID: 5707873959198883375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +583,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5707873957984239966, guid: 783b87525b315d84ea4ced4a170c3995, type: 3}
   m_PrefabInstance: {fileID: 5707873959198883375}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1717402571 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1505824571928857945, guid: 783b87525b315d84ea4ced4a170c3995, type: 3}
+  m_PrefabInstance: {fileID: 5707873959198883375}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1868764838
 GameObject:
   m_ObjectHideFlags: 0
@@ -1327,14 +1349,22 @@ PrefabInstance:
       propertyPath: rewardView
       value: 
       objectReference: {fileID: 5707873959198883376}
+    - target: {fileID: 5343528011194139246, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
+      propertyPath: goldWheelView
+      value: 
+      objectReference: {fileID: 1717402571}
+    - target: {fileID: 5343528011194139246, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
+      propertyPath: bronzeWheelView
+      value: 
+      objectReference: {fileID: 47222719}
+    - target: {fileID: 5343528011194139246, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
+      propertyPath: silverWheelView
+      value: 
+      objectReference: {fileID: 376533558}
     - target: {fileID: 5923177633189478434, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
       propertyPath: progressBar
       value: 
       objectReference: {fileID: 108696648}
-    - target: {fileID: 6208632699382920028, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
-      propertyPath: wheelView
-      value: 
-      objectReference: {fileID: 47222719}
     - target: {fileID: 8330978456979197891, guid: be293d1442abde54ea048a4fb078f17e, type: 3}
       propertyPath: m_RootOrder
       value: 0

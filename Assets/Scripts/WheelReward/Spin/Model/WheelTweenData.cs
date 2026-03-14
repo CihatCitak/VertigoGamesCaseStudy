@@ -15,11 +15,18 @@ namespace WheelReward.Spin.Model
         [SerializeField] private Ease spinTweenEase = Ease.OutQuart;
         [SerializeField] private int spinTweenExtraRotations = 5;
 
+        [Header("Appear Tween")]
+        [SerializeField] private float appearTweenDuration = 0.3f;
+        [SerializeField] private Ease appearTweenEase = Ease.OutBack;
+        
         public float IdleTweenSpeed => idleTweenSpeed;
         public Ease IdleTweenEase => idleTweenEase;
 
         public float SpinTweenDuration => spinTweenDuration;
         public Ease SpinTweenEase => spinTweenEase;
         public int SpinTweenExtraRotations => spinTweenExtraRotations;
+
+        public float AppearTweenDuration => appearTweenDuration;
+        public Ease AppearTweenEase => appearTweenEase;
     }
 }

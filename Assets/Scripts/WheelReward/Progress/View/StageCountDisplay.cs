@@ -1,6 +1,8 @@
 using DG.Tweening;
+using Zenject;
 using UnityEngine;
 using WheelReward.Progress.Model;
+using WheelReward.Progress.Interface;
 
 namespace WheelReward.Progress.View
 {
@@ -10,6 +12,8 @@ namespace WheelReward.Progress.View
         [SerializeField] private StageCountDisplayItem itemB;
         [SerializeField] private ProgressBarConfig config;
         [SerializeField] private StageCountDisplayConfig counterConfig;
+
+        [Inject] private IProgressController _progressController;
 
         private StageCountDisplayItem _currentItem;
         private StageCountDisplayItem _incomingItem;
@@ -77,16 +81,16 @@ namespace WheelReward.Progress.View
 
         private Color GetColorForStage(int stage)
         {
-            if (stage == config.FinalStage) return config.FinalColor;
-            if (stage == 1 || stage % config.MilestoneInterval == 0) return config.MilestoneColor;
+            var type = _progressController.GetStageType(stage);
+            if (type == StageType.Final) return config.FinalColor;
+            if (type == StageType.Safe) return config.MilestoneColor;
             return Color.white;
         }
 
         private Sprite GetSpriteForStage(int stage)
         {
-            if (stage == config.FinalStage) return counterConfig.SafeStageSprite;
-            if (stage == 1 || stage % config.MilestoneInterval == 0) return counterConfig.SafeStageSprite;
-            return counterConfig.DefaultSprite;
+            var type = _progressController.GetStageType(stage);
+            return type == StageType.Normal ? counterConfig.DefaultSprite : counterConfig.SafeStageSprite;
         }
 
         #endregion

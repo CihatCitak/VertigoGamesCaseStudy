@@ -19,6 +19,7 @@ namespace WheelReward.Spin.View
 
         private Tween _idleTween;
         private Tween _spinTween;
+        private Tween _appearTween;
         private const int SlotCount = 8;
 
         #region Lifecycle
@@ -33,6 +34,7 @@ namespace WheelReward.Spin.View
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
+            _appearTween?.Kill();
         }
 
         #endregion
@@ -88,6 +90,19 @@ namespace WheelReward.Spin.View
                 .DORotate(new Vector3(0f, 0f, -360f), duration, RotateMode.WorldAxisAdd)
                 .SetEase(tweenData.IdleTweenEase)
                 .SetLoops(-1, LoopType.Incremental);
+        }
+
+        #endregion
+
+        #region Appear Tween
+
+        public void PlayShowTween()
+        {
+            _appearTween?.Kill();
+            transform.localScale = Vector3.zero;
+            _appearTween = transform
+                .DOScale(Vector3.one, tweenData.AppearTweenDuration)
+                .SetEase(tweenData.AppearTweenEase);
         }
 
         #endregion

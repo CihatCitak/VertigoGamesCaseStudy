@@ -1,5 +1,55 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4360938458614609307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3712243722882554026}
+  - component: {fileID: 5343528011194139246}
+  m_Layer: 0
+  m_Name: MonoInstallerWheelStrategy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3712243722882554026
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360938458614609307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8330978456979197891}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5343528011194139246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360938458614609307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 070c48613a343814599d2ef0e680169d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bronzeWheelView: {fileID: 0}
+  silverWheelView: {fileID: 0}
+  goldWheelView: {fileID: 0}
+  bronzeRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
+  silverRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
+  goldRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
 --- !u!1 &5068415736317012174
 GameObject:
   m_ObjectHideFlags: 0
@@ -30,7 +80,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8330978456979197891}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2948404248505532140
 MonoBehaviour:
@@ -75,7 +125,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8330978456979197891}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6208632699382920028
 MonoBehaviour:
@@ -89,8 +139,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46074f417a494fc7a481cf479480210b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  wheelView: {fileID: 0}
-  wheelRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
 --- !u!1 &7580883291736129223
 GameObject:
   m_ObjectHideFlags: 0
@@ -121,7 +169,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8330978456979197891}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5923177633189478434
 MonoBehaviour:
@@ -136,6 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   progressBar: {fileID: 0}
+  progressBarConfig: {fileID: 11400000, guid: 4ca4aed173e52d54d95fde43957ccea4, type: 2}
 --- !u!1 &8330978456979197893
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,6 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3712243722882554026}
   - {fileID: 729087596334228516}
   - {fileID: 4346365421121387001}
   - {fileID: 2735449651560598249}
@@ -185,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _scriptableObjectInstallers: []
   _monoInstallers:
+  - {fileID: 5343528011194139246}
   - {fileID: 6208632699382920028}
   - {fileID: 2948404248505532140}
   - {fileID: 5923177633189478434}
