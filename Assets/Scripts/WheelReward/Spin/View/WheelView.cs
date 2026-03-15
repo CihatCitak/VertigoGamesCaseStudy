@@ -1,5 +1,8 @@
+using System;
+using Zenject;
 using DG.Tweening;
 using UnityEngine;
+using WheelReward.Signals;
 using WheelReward.Spin.Model;
 using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
@@ -17,12 +20,19 @@ namespace WheelReward.Spin.View
         [SerializeField] private WheelRewardConfig wheelRewardConfig;
         [SerializeField] private List<WheelRewardView> wheelRewardViews;
 
+        [Inject] private SignalBus _signalBus;
+
         private Tween _idleTween;
         private Tween _spinTween;
         private Tween _appearTween;
         private const int SlotCount = 8;
 
         #region Lifecycle
+
+        private void Awake()
+        {
+            _signalBus.Subscribe<OnSpinEnd>(StartIdleTween);
+        }
 
         private void Start()
         {
@@ -31,6 +41,14 @@ namespace WheelReward.Spin.View
         }
 
         private void OnDestroy()
+        {
+            _idleTween?.Kill();
+            _spinTween?.Kill();
+            _appearTween?.Kill();
+            _signalBus.TryUnsubscribe<OnSpinEnd>(StartIdleTween);
+        }
+
+        private void OnDisable()
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
@@ -99,6 +117,8 @@ namespace WheelReward.Spin.View
         public void PlayShowTween()
         {
             _appearTween?.Kill();
+            _spinTween?.Kill();
+
             transform.localScale = Vector3.zero;
             _appearTween = transform
                 .DOScale(Vector3.one, tweenData.AppearTweenDuration)
@@ -113,6 +133,7 @@ namespace WheelReward.Spin.View
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
+            _appearTween?.Kill();
 
             var slotAngle = 360f / SlotCount;
             var currentZ = wheelTransform.eulerAngles.z;
@@ -125,15 +146,14 @@ namespace WheelReward.Spin.View
 
             _spinTween = wheelTransform
                 .DORotate(new Vector3(0f, 0f, -totalRotation), tweenData.SpinTweenDuration, RotateMode.WorldAxisAdd)
-                .SetEase(tweenData.SpinTweenEase)
-                .OnComplete(OnSpinComplete);
+                .SetEase(tweenData.SpinTweenEase);
 
             await _spinTween.ToUniTask();
         }
 
-        private void OnSpinComplete()
+        public Vector3 GetSlotWorldPosition(int slotIndex)
         {
-            StartIdleTween();
+            return wheelRewardViews[slotIndex].transform.position;
         }
 
         #endregion

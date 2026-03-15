@@ -23,5 +23,13 @@ namespace WheelReward.Reward.View
                 _items[id] = newItem;
             }
         }
+
+        public Vector3 GetRewardIconWorldPosition(string id)
+        {
+            if (_items.TryGetValue(id, out var item))
+                return item.GetIconWorldPosition();
+
+            return transform.position;
+        }
     }
 }

@@ -2,9 +2,10 @@ using System;
 using Zenject;
 using UnityEngine;
 using WheelReward.Signals;
+using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
-using WheelReward.Reward.Interface;
 using Random = UnityEngine.Random;
+using WheelReward.Reward.Interface;
 
 namespace WheelReward.Spin.Controller
 {
@@ -35,9 +36,9 @@ namespace WheelReward.Spin.Controller
                 _signalBus.Fire(new OnSpinStart());
 
                 await wheelView.Spin(winSlot);
-                _rewardController.AddReward(rewardData.Id, rewardData.Image, rewardData.Count);
 
-                _signalBus.Fire(new OnSpinEnd());
+                var slotPos = wheelView.GetSlotWorldPosition(winSlot);
+                _rewardController.AddReward(rewardData.Id, rewardData.Image, rewardData.Count, slotPos).Forget();
             }
             catch (Exception e)
             {

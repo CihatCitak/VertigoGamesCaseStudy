@@ -22,6 +22,7 @@ namespace WheelReward.Spin.Controller
 
         private WheelView _activeWheelView;
         private WheelRewardConfig _activeRewardConfig;
+        private StageType _currentStage = StageType.Final;
 
         public WheelStrategyController(
             SignalBus signalBus,
@@ -72,6 +73,9 @@ namespace WheelReward.Spin.Controller
 
         private void ActivateForStage(StageType stageType)
         {
+            if(_currentStage  == stageType) return;
+            _currentStage  = stageType;
+            
             _activeWheelView = stageType == StageType.Final ? _goldWheelView
                              : stageType == StageType.Safe  ? _silverWheelView
                              : _bronzeWheelView;

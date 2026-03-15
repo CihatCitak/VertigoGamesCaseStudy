@@ -1,9 +1,11 @@
+using UnityEngine;
 using Cysharp.Threading.Tasks;
 
 namespace WheelReward.Spin.Interface
 {
     public interface IWheelView
     {
-        public UniTask Spin(int slotIndex);
+        UniTask Spin(int slotIndex);
+        Vector3 GetSlotWorldPosition(int slotIndex);
     }
 }

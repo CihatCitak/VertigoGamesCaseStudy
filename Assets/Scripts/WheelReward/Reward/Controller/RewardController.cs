@@ -1,5 +1,9 @@
+using System;
+using Zenject;
 using UnityEngine;
+using Cysharp.Threading.Tasks;
 using System.Collections.Generic;
+using WheelReward.Signals;
 using WheelReward.Reward.Interface;
 
 namespace WheelReward.Reward.Controller
@@ -8,18 +12,32 @@ namespace WheelReward.Reward.Controller
     {
         private readonly Dictionary<string, int> _rewards = new();
         private readonly IRewardView _rewardView;
+        private readonly IRewardEffect _rewardEffect;
+        private readonly SignalBus _signalBus;
 
-        public RewardController(IRewardView rewardView)
+        public RewardController(IRewardView rewardView, IRewardEffect rewardEffect, SignalBus signalBus)
         {
             _rewardView = rewardView;
+            _rewardEffect = rewardEffect;
+            _signalBus = signalBus;
         }
 
-        public void AddReward(string id, Sprite sprite, int count)
+        public async UniTask AddReward(string id, Sprite sprite, int count, Vector3 fromPosition)
         {
-            if (!_rewards.TryAdd(id, count))
-                _rewards[id] += count;
+            try
+            {
+                if (!_rewards.TryAdd(id, count))
+                    _rewards[id] += count;
 
-            _rewardView.AddReward(id, sprite, count);
+                var toPosition = _rewardView.GetRewardIconWorldPosition(id);
+                await _rewardEffect.Play(sprite, fromPosition, toPosition);
+                _rewardView.AddReward(id, sprite, count);
+                _signalBus.Fire(new OnSpinEnd());
+            }
+            catch (Exception e)
+            {
+                Debug.LogError($"RewardController: AddReward: {e}");
+            }
         }
 
         public void TakeRewards()

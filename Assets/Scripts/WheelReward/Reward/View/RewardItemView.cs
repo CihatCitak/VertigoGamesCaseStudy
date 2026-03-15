@@ -15,6 +15,8 @@ namespace WheelReward.Reward.View
 
         public string Id { get; private set; }
 
+        public Vector3 GetIconWorldPosition() => rewardImage.transform.position;
+
         public void Initialize(string id, Sprite sprite, int count)
         {
             Id = id;
