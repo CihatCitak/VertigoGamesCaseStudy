@@ -13,6 +13,12 @@ namespace WheelReward.Progress.View
                 label.color = color;
         }
 
+        public void SetText(int stage)
+        {
+            if (label != null)
+                label.text = stage.ToString();
+        }
+
         public void DimAlpha(float alpha)
         {
             var color = label.color;

@@ -3,6 +3,7 @@ using Zenject;
 using WheelReward.Signals;
 using WheelReward.Progress.Model;
 using WheelReward.Progress.Interface;
+using WheelReward.Reward.Interface;
 
 namespace WheelReward.Progress.Controller
 {
@@ -11,18 +12,22 @@ namespace WheelReward.Progress.Controller
         private readonly SignalBus _signalBus;
         private readonly IProgressBar _progressBar;
         private readonly ProgressBarConfig _progressBarConfig;
+        private readonly IRewardController _rewardController;
 
         private int _progress = 1;
         private StageType _currentStageType;
 
         public int CurrentStage => _progress;
+        public int MaxProgress => _progressBarConfig.FinalStage;
 
-        public ProgressController(SignalBus signalBus, IProgressBar progressBar,
+        public ProgressController(SignalBus signalBus, IRewardController rewardController, IProgressBar progressBar,
             ProgressBarConfig progressBarConfig)
         {
             _signalBus = signalBus;
+            _rewardController = rewardController;
             _progressBar = progressBar;
             _progressBarConfig = progressBarConfig;
+            
             _signalBus.Subscribe<OnSpinEnd>(OnSpinEnd);
             _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
             _currentStageType = GetStageType(_progress);
@@ -39,6 +44,13 @@ namespace WheelReward.Progress.Controller
         {
             _progress++;
             _progressBar.SetProgress(_progress);
+
+            if (_progress > MaxProgress)
+            {
+                _rewardController.TakeRewards();
+                return;
+            }
+
             var newType = GetStageType(_progress);
             if (newType == _currentStageType) return;
             _currentStageType = newType;

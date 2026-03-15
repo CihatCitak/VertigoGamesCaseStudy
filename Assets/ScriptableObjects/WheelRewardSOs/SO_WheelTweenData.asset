@@ -17,3 +17,5 @@ MonoBehaviour:
   spinTweenDuration: 5
   spinTweenEase: 12
   spinTweenExtraRotations: 4
+  appearTweenDuration: 0.3
+  appearTweenEase: 27

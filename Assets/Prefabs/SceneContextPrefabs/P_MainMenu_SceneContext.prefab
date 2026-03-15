@@ -141,6 +141,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rewardView: {fileID: 0}
   rewardEffect: {fileID: 0}
+  takeRewards: {fileID: 0}
 --- !u!1 &5157689465651848884
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ namespace WheelReward.Spin.Controller
                 }
 
                 var slotPos = wheelView.GetSlotWorldPosition(winSlot);
-                _rewardController.AddReward(rewardData.Id, rewardData.Image, rewardData.Count, slotPos).Forget();
+                _rewardController.AddReward(rewardData.Id, rewardData.Name, rewardData.Image, rewardData.Count, slotPos).Forget();
             }
             catch (Exception e)
             {

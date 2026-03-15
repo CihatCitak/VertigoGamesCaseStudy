@@ -13,7 +13,7 @@ namespace WheelReward.Spin.View
 
         #region Signal Subscriptions
 
-        private void Awake()
+        private void Start()
         {
             _signalBus.Subscribe<OnSpinEnd>(OpenButton);
             _signalBus.Subscribe<OnSpinRestart>(OpenButton);

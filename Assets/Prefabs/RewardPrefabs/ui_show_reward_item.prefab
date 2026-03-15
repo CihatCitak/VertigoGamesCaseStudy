@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8535481693339337232}
   - component: {fileID: 3402372779312768752}
   m_Layer: 5
-  m_Name: ui_reward_item_prefab
+  m_Name: ui_show_reward_item
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

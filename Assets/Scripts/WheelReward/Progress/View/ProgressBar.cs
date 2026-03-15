@@ -1,21 +1,22 @@
-using DG.Tweening;
 using Zenject;
+using DG.Tweening;
 using UnityEngine;
 using WheelReward.Progress.Model;
-using WheelReward.Progress.Interface;
 using System.Collections.Generic;
+using WheelReward.Progress.Interface;
 
 namespace WheelReward.Progress.View
 {
     public class ProgressBar : MonoBehaviour, IProgressBar
     {
-        [SerializeField] private List<ProgressBarItem> items;
+        [SerializeField] private ProgressBarItem itemPrefab;
         [SerializeField] private RectTransform stagesParent;
         [SerializeField] private ProgressBarConfig config;
         [SerializeField] private StageCountDisplay stageCountDisplay;
 
         [Inject] private IProgressController _progressController;
 
+        private readonly List<ProgressBarItem> _items = new();
         private float _initialX;
         private Tween _slideTween;
 
@@ -65,23 +66,28 @@ namespace WheelReward.Progress.View
 
         private void InitializeItemColors()
         {
-            for (var i = 0; i < items.Count; i++)
+            for (var i = 0; i < _progressController.MaxProgress; i++)
             {
+                var item = Instantiate(itemPrefab, stagesParent);
+                _items.Add(item);
+
                 var stage = i + 1;
+                item.SetText(stage);
+
                 var stageType = _progressController.GetStageType(stage);
                 if (stageType == StageType.Final)
-                    items[i].SetColor(config.FinalColor);
+                    item.SetColor(config.FinalColor);
                 else if (stageType == StageType.Safe)
-                    items[i].SetColor(config.MilestoneColor);
+                    item.SetColor(config.MilestoneColor);
             }
         }
 
         private void UpdateItemColors(int progress)
         {
             var passedIndex = progress - 2;
-            if (passedIndex < 0 || passedIndex >= items.Count) return;
+            if (passedIndex < 0 || passedIndex >= _items.Count) return;
 
-            items[passedIndex].DimAlpha(config.BarPassedAlpha);
+            _items[passedIndex].DimAlpha(config.BarPassedAlpha);
         }
 
         #endregion

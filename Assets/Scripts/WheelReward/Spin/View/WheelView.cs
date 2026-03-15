@@ -29,13 +29,10 @@ namespace WheelReward.Spin.View
 
         #region Lifecycle
 
-        private void Awake()
-        {
-            _signalBus.Subscribe<OnSpinEnd>(StartIdleTween);
-        }
-
         private void Start()
         {
+            _signalBus.Subscribe<OnSpinEnd>(StartIdleTween);
+            
             SetupRewards();
             StartIdleTween();
         }
