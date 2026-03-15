@@ -10,18 +10,20 @@ namespace WheelReward.Reward.View
 
         private readonly Dictionary<string, RewardItemView> _items = new();
 
-        public void AddReward(string id, Sprite sprite, int count)
+        public void AddReward(string id, Sprite sprite)
+        {
+            if (_items.ContainsKey(id))
+                return;
+
+            var newItem = Instantiate(itemPrefab, transform);
+            newItem.Initialize(id, sprite, 0);
+            _items[id] = newItem;
+        }
+
+        public void UpdateRewardCount(string id, int count)
         {
             if (_items.TryGetValue(id, out var item))
-            {
                 item.UpdateCount(count);
-            }
-            else
-            {
-                var newItem = Instantiate(itemPrefab, transform);
-                newItem.Initialize(id, sprite, count);
-                _items[id] = newItem;
-            }
         }
 
         public Vector3 GetRewardIconWorldPosition(string id)

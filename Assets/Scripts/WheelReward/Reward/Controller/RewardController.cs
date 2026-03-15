@@ -29,9 +29,11 @@ namespace WheelReward.Reward.Controller
                 if (!_rewards.TryAdd(id, count))
                     _rewards[id] += count;
 
+                _rewardView.AddReward(id, sprite);
+                await UniTask.DelayFrame(1);
                 var toPosition = _rewardView.GetRewardIconWorldPosition(id);
                 await _rewardEffect.Play(sprite, fromPosition, toPosition);
-                _rewardView.AddReward(id, sprite, count);
+                _rewardView.UpdateRewardCount(id, count);
                 _signalBus.Fire(new OnSpinEnd());
             }
             catch (Exception e)

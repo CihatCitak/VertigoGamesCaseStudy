@@ -103,6 +103,7 @@ namespace WheelReward.Spin.View
 
         private void StartIdleTween()
         {
+            _idleTween?.Kill();
             var duration = 360f / tweenData.IdleTweenSpeed;
             _idleTween = wheelTransform
                 .DORotate(new Vector3(0f, 0f, -360f), duration, RotateMode.WorldAxisAdd)
