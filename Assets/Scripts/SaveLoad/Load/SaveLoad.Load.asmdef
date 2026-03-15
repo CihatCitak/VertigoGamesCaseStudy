@@ -1,7 +1,0 @@
-{
-  "name": "SaveLoad.Load",
-  "references": [
-    "GUID:6ebcce07c99c4265ae26290aad011549",
-    "GUID:32b802dd5b234d6190c64b24d576f057"
-  ]
-}
