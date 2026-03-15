@@ -12,36 +12,53 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9, type: 3}
   m_Name: SO_WheelRewardConfig_Gold
   m_EditorClassIdentifier: 
-  rewards:
-  - id: cash
-    image: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
-    count: 150000
-    isBomb: 0
-  - id: 
-    image: {fileID: 0}
-    count: 10
-    isBomb: 0
-  - id: chest_standart
-    image: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
-    count: 25
-    isBomb: 0
-  - id: 
-    image: {fileID: 0}
-    count: 10
-    isBomb: 0
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 1000
-    isBomb: 0
-  - id: 
-    image: {fileID: 0}
-    count: 10
-    isBomb: 0
-  - id: chest_super
-    image: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
-    count: 25
-    isBomb: 0
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 500
-    isBomb: 0
+  rewardSets:
+  - rewards:
+    - id: tier3_sniper
+      name: Sniper Tier 3
+      icon: {fileID: 21300000, guid: d514cb1363860d943b5d7d25e2ff7b27, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: tier3_smg
+      name: SMG Tier 3
+      icon: {fileID: 21300000, guid: 833d6ee0dbca6864fbb9bf1a2528b85e, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: tier3_shotgun
+      name: Shotgun Tier 3
+      icon: {fileID: 21300000, guid: 9c5ec8c4cc976b24bad6bdfa9b3c7d90, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: tier2_rifle
+      name: Rifle Tier 2
+      icon: {fileID: 21300000, guid: 3c629d973b4bda04286dc021dc56872f, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: tier2_male
+      name: Male Tier 2
+      icon: {fileID: 21300000, guid: 2c83478d94885f74ba6ba253861d709d, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: tier1_shotgun
+      name: Shotgun Tier 1
+      icon: {fileID: 21300000, guid: 487138cacc06e6c4b92d2f6b5880d8a4, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: baseball_cap_easter
+      name: Baseball Cap Easter
+      icon: {fileID: 21300000, guid: 23fd33b8485959646aac8399f7093a8d, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0
+    - id: aviator_glasses_easter
+      name: Aviator Glasses Easter
+      icon: {fileID: 21300000, guid: 6e1af6a104b697f46aee1266f802958a, type: 3}
+      minCount: 100
+      maxCount: 100
+      isBomb: 0

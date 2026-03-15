@@ -14,10 +14,10 @@ namespace WheelReward.Spin.View
 
         private readonly StringBuilder _builder = new();
 
-        public void Setup(RewardData data)
+        public void Setup(RewardData data, int blendedCount)
         {
             id = data.Id;
-            rewardImage.sprite = data.Image;
+            rewardImage.sprite = data.Icon;
 
             if (data.IsBomb)
             {
@@ -25,8 +25,9 @@ namespace WheelReward.Spin.View
                 return;
             }
 
+            _builder.Clear();
             _builder.Append("x");
-            _builder.Append(data.Count.ToString());
+            _builder.Append(blendedCount.ToString());
             countText.text = _builder.ToString();
         }
     }

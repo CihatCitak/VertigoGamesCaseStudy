@@ -1,4 +1,3 @@
-using System;
 using Zenject;
 using DG.Tweening;
 using UnityEngine;
@@ -6,34 +5,29 @@ using WheelReward.Signals;
 using WheelReward.Spin.Model;
 using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
+using WheelReward.Reward.Model;
 using System.Collections.Generic;
 
 namespace WheelReward.Spin.View
 {
     public class WheelView : MonoBehaviour, IWheelView
     {
-        //[Header("Tween Attributes")] 
         [SerializeField] private WheelTweenData tweenData;
         [SerializeField] private Transform wheelTransform;
-
-        //[Header("Reward Settings")] 
-        [SerializeField] private WheelRewardConfig wheelRewardConfig;
         [SerializeField] private List<WheelRewardView> wheelRewardViews;
 
         [Inject] private SignalBus _signalBus;
 
+        private List<RewardData> _currentRewards;
         private Tween _idleTween;
         private Tween _spinTween;
         private Tween _appearTween;
-        private const int SlotCount = 8;
 
         #region Lifecycle
 
         private void Start()
         {
             _signalBus.Subscribe<OnSpinEnd>(StartIdleTween);
-            
-            SetupRewards();
             StartIdleTween();
         }
 
@@ -56,41 +50,17 @@ namespace WheelReward.Spin.View
 
         #region Setup
 
-        private void OnValidate()
+        public int SlotCount => wheelRewardViews.Count;
+
+        public void SetupRewards(List<RewardData> rewards, int progress, int maxProgress)
         {
-            if (wheelRewardConfig == null || wheelRewardViews == null) return;
-
-            var rewardCount = wheelRewardConfig.Rewards.Count;
-            var viewCount = wheelRewardViews.Count;
-
-            if (rewardCount == viewCount) return;
-            
-            Debug.LogWarning(
-                $"[WheelView] Reward count ({rewardCount}) and view count ({viewCount}) do not match!");
-
-            Debug.LogWarning(
-                viewCount > rewardCount
-                    ? $"[WheelView] Trimmed {viewCount - rewardCount} excess view(s) from the list."
-                    : $"[WheelView] Missing {rewardCount - viewCount} view(s). Please assign them in the Inspector.");
-        }
-
-        private void SetupRewards()
-        {
-            if (wheelRewardConfig == null || wheelRewardViews == null) return;
-
-            var rewardCount = wheelRewardConfig.Rewards.Count;
-            var viewCount = wheelRewardViews.Count;
-
-            if (rewardCount != viewCount)
+            _currentRewards = rewards;
+            for (var i = 0; i < rewards.Count; i++)
             {
-                Debug.LogError(
-                    $"[WheelView] Cannot setup rewards: count mismatch (rewards: {rewardCount}, views: {viewCount}).");
-                return;
-            }
-
-            for (var i = 0; i < rewardCount; i++)
-            {
-                wheelRewardViews[i].Setup(wheelRewardConfig.Rewards[i]);
+                var currentCount = rewards[i].GetBlendedCount(progress, maxProgress);
+                rewards[i].CurrenCount  = currentCount;
+                wheelRewardViews[i].Setup(rewards[i], rewards[i].GetBlendedCount(progress, maxProgress));
+                
             }
         }
 
@@ -127,7 +97,7 @@ namespace WheelReward.Spin.View
 
         #region Spin Tween
 
-        public async UniTask Spin(int slotIndex)
+        public async UniTask<RewardData> Spin(int slotIndex)
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
@@ -147,6 +117,7 @@ namespace WheelReward.Spin.View
                 .SetEase(tweenData.SpinTweenEase);
 
             await _spinTween.ToUniTask();
+            return _currentRewards[slotIndex];
         }
 
         public Vector3 GetSlotWorldPosition(int slotIndex)

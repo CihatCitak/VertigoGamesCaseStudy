@@ -21,7 +21,6 @@ namespace WheelReward.Spin.Controller
         private readonly WheelRewardConfig _goldConfig;
 
         private WheelView _activeWheelView;
-        private WheelRewardConfig _activeRewardConfig;
         private StageType _currentStage = StageType.Final;
 
         public WheelStrategyController(
@@ -45,6 +44,7 @@ namespace WheelReward.Spin.Controller
 
             _signalBus.Subscribe<OnSpinTypeChange>(OnSpinTypeChange);
             _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
+            
             ActivateForStage(_progressController.GetStageType(_progressController.CurrentStage));
         }
 
@@ -57,8 +57,6 @@ namespace WheelReward.Spin.Controller
         #region IWheelStrategy
 
         public IWheelView GetCurrentWheelView() => _activeWheelView;
-
-        public WheelRewardConfig GetCurrentRewardConfig() => _activeRewardConfig;
 
         #endregion
 
@@ -81,21 +79,26 @@ namespace WheelReward.Spin.Controller
 
         private void ActivateForStage(StageType stageType)
         {
-            if(_currentStage  == stageType) return;
-            _currentStage  = stageType;
-            
+            if (_currentStage == stageType) return;
+            _currentStage = stageType;
+
+            var config = stageType == StageType.Final ? _goldConfig
+                       : stageType == StageType.Safe  ? _silverConfig
+                       : _bronzeConfig;
+
             _activeWheelView = stageType == StageType.Final ? _goldWheelView
                              : stageType == StageType.Safe  ? _silverWheelView
                              : _bronzeWheelView;
-            _activeRewardConfig = stageType == StageType.Final ? _goldConfig
-                                : stageType == StageType.Safe  ? _silverConfig
-                                : _bronzeConfig;
 
             _bronzeWheelView.gameObject.SetActive(false);
             _silverWheelView.gameObject.SetActive(false);
             _goldWheelView.gameObject.SetActive(false);
 
             _activeWheelView.gameObject.SetActive(true);
+            _activeWheelView.SetupRewards(
+                config.GetRandomRewards(),
+                _progressController.CurrentStage,
+                _progressController.MaxProgress);
             _activeWheelView.PlayShowTween();
         }
 

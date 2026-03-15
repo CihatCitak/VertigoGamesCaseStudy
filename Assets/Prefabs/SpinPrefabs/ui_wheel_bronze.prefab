@@ -188,7 +188,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenData: {fileID: 11400000, guid: 62bd80640206e5949bcab09ccb92466a, type: 2}
   wheelTransform: {fileID: 9030503586114369866}
-  wheelRewardConfig: {fileID: 11400000, guid: e82ededf7662dd04aaf0778feae5b43b, type: 2}
   wheelRewardViews:
   - {fileID: 7051746261789363821}
   - {fileID: 6751186039847192484}
@@ -404,7 +403,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_7
+      value: ui_wheel_reward_7_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -517,7 +516,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_6
+      value: ui_wheel_reward_6_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -630,7 +629,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_2
+      value: ui_wheel_reward_2_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -743,7 +742,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_5
+      value: ui_wheel_reward_5_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -856,7 +855,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_1
+      value: ui_wheel_reward_1_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -969,7 +968,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_4
+      value: ui_wheel_reward_4_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -1082,7 +1081,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_0
+      value: ui_wheel_reward_0_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x
@@ -1195,7 +1194,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3972634021407528065, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Name
-      value: ui_wheel_reward_3
+      value: ui_wheel_reward_3_value
       objectReference: {fileID: 0}
     - target: {fileID: 6482492293475849706, guid: 5557f5409f1a0f040bdb8618fe4c1a54, type: 3}
       propertyPath: m_Pivot.x

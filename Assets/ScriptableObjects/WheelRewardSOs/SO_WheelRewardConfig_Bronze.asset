@@ -12,36 +12,396 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9, type: 3}
   m_Name: SO_WheelRewardConfig_Bronze
   m_EditorClassIdentifier: 
-  rewards:
-  - id: cash
-    image: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
-    count: 2000
-    isBomb: 0
-  - id: bomb
-    image: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
-    count: 0
-    isBomb: 1
-  - id: chest_standart
-    image: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
-    count: 1
-    isBomb: 0
-  - id: 
-    image: {fileID: 0}
-    count: 10
-    isBomb: 0
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 20
-    isBomb: 0
-  - id: bomb
-    image: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
-    count: 0
-    isBomb: 1
-  - id: chest_super
-    image: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
-    count: 1
-    isBomb: 0
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 10
-    isBomb: 0
+  rewardSets:
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: armor_points
+      name: Armor Points
+      icon: {fileID: 21300000, guid: 7d4a293a5ba98374c86987dc41ed078d, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: knife_points
+      name: Knife Points
+      icon: {fileID: 21300000, guid: d33db4e0d01009348b57b951143e9bb0, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: pistol_points
+      name: Pistol Points
+      icon: {fileID: 21300000, guid: dde1f79239f8415489969d151d46ead3, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: rifle_points
+      name: Rifle Points
+      icon: {fileID: 21300000, guid: 9775c9e84dc9cb0468f3506d38fe6650, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: shotgun_points
+      name: Shotgun Points
+      icon: {fileID: 21300000, guid: 9cfc19a41d0a32d4d84b403faa0d1d01, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: smg_points
+      name: SMG_Points
+      icon: {fileID: 21300000, guid: 60d03784d4fc212448335e03abaf5b65, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: sniper_points
+      name: Sniper Points
+      icon: {fileID: 21300000, guid: f68b521e658ede849aec3d57f0c7745c, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 500
+      maxCount: 5000
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_standart
+      name: Standart Chest
+      icon: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: submachine_points
+      name: Submachine Points
+      icon: {fileID: 21300000, guid: 1adc5c9907b41d54493fa12e6abaa739, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 100
+      isBomb: 0
+    - id: bomb
+      name: Bomb
+      icon: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+      minCount: 0
+      maxCount: 0
+      isBomb: 1
+    - id: chest_super
+      name: Super Chest
+      icon: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 10
+      maxCount: 100
+      isBomb: 0

@@ -12,28 +12,175 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9, type: 3}
   m_Name: SO_WheelRewardConfig_Silver
   m_EditorClassIdentifier: 
-  rewards:
-  - id: cash
-    image: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
-    count: 15000
-  - id: 
-    image: {fileID: 0}
-    count: 10
-  - id: chest_standart
-    image: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
-    count: 5
-  - id: 
-    image: {fileID: 0}
-    count: 10
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 20
-  - id: 
-    image: {fileID: 0}
-    count: 10
-  - id: chest_super
-    image: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
-    count: 5
-  - id: gold
-    image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
-    count: 100
+  rewardSets:
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 2000
+      maxCount: 20000
+      isBomb: 0
+      CurrenCount: 500
+    - id: grenade_m26
+      name: Grenade M26
+      icon: {fileID: 21300000, guid: 098b842b449151841876df00fe3d66e8, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 1
+    - id: chest_silver
+      name: Silver Chest
+      icon: {fileID: 21300000, guid: e02f7a56437132243b824b27d491742c, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 2
+    - id: sniper_points
+      name: Sniper Points
+      icon: {fileID: 21300000, guid: f68b521e658ede849aec3d57f0c7745c, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 1
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 50
+      maxCount: 200
+      isBomb: 0
+      CurrenCount: 20
+    - id: healthshot_neurostim
+      name: Health Shot Neurostim
+      icon: {fileID: 21300000, guid: 5d5b83e635ace154ebbf0bc53b12adb2, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 1
+    - id: gold_super
+      name: Gold Chest
+      icon: {fileID: 21300000, guid: afa1ad6d391d39e4b8b471bbc723a28f, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 2
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 150
+      isBomb: 0
+      CurrenCount: 10
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 2000
+      maxCount: 20000
+      isBomb: 0
+      CurrenCount: 3448
+    - id: grenade_m67
+      name: Grenade M67
+      icon: {fileID: 21300000, guid: 0e25bc30bc575ff4daf6fd22c1420dd5, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 10
+    - id: chest_silver
+      name: Silver Chest
+      icon: {fileID: 21300000, guid: e02f7a56437132243b824b27d491742c, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 20
+    - id: sniper_points
+      name: Sniper Points
+      icon: {fileID: 21300000, guid: f68b521e658ede849aec3d57f0c7745c, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 10
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 30
+      maxCount: 250
+      isBomb: 0
+      CurrenCount: 72
+    - id: healthshot_regenerator
+      name: Health Shot Regenerator
+      icon: {fileID: 21300000, guid: 5d5b83e635ace154ebbf0bc53b12adb2, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 10
+    - id: gold_super
+      name: Gold Chest
+      icon: {fileID: 21300000, guid: afa1ad6d391d39e4b8b471bbc723a28f, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 20
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 150
+      isBomb: 0
+      CurrenCount: 69
+  - rewards:
+    - id: cash
+      name: Cash
+      icon: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
+      minCount: 2000
+      maxCount: 20000
+      isBomb: 0
+      CurrenCount: 1897
+    - id: cons_molotov
+      name: Cons Molotov
+      icon: {fileID: 21300000, guid: 89c424adbb85f344db1144a00f014421, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 5
+    - id: chest_silver
+      name: Silver Chest
+      icon: {fileID: 21300000, guid: e02f7a56437132243b824b27d491742c, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 11
+    - id: sniper_points
+      name: Sniper Points
+      icon: {fileID: 21300000, guid: f68b521e658ede849aec3d57f0c7745c, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 5
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 50
+      maxCount: 200
+      isBomb: 0
+      CurrenCount: 45
+    - id: healthshot_regenerator
+      name: Health Shot Regenerator
+      icon: {fileID: 21300000, guid: 5d5b83e635ace154ebbf0bc53b12adb2, type: 3}
+      minCount: 1
+      maxCount: 15
+      isBomb: 0
+      CurrenCount: 5
+    - id: gold_super
+      name: Gold Chest
+      icon: {fileID: 21300000, guid: afa1ad6d391d39e4b8b471bbc723a28f, type: 3}
+      minCount: 2
+      maxCount: 30
+      isBomb: 0
+      CurrenCount: 11
+    - id: gold
+      name: Gold
+      icon: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
+      minCount: 20
+      maxCount: 200
+      isBomb: 0
+      CurrenCount: 38

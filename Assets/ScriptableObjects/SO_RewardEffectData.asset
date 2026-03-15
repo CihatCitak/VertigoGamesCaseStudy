@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5134816fc176c8147a190424c02c53a8, type: 3}
   m_Name: SO_RewardEffectData
   m_EditorClassIdentifier: 
-  tweenDuration: 0.5
-  tweenEase: 26
+  scatterRadius: 250
+  scatterDuration: 0.3
+  scatterEase: 6
+  holdDuration: 0.1
+  flyDuration: 0.5
+  flyEase: 26
+  gatherEase: 26

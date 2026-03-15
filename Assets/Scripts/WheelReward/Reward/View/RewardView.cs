@@ -7,6 +7,7 @@ namespace WheelReward.Reward.View
     public class RewardView : MonoBehaviour, IRewardView
     {
         [SerializeField] private RewardItemView itemPrefab;
+        [SerializeField] private Transform itemParent;
 
         private readonly Dictionary<string, RewardItemView> _items = new();
 
@@ -15,7 +16,7 @@ namespace WheelReward.Reward.View
             if (_items.ContainsKey(id))
                 return;
 
-            var newItem = Instantiate(itemPrefab, transform);
+            var newItem = Instantiate(itemPrefab, itemParent);
             newItem.Initialize(id, sprite, 0);
             _items[id] = newItem;
         }
@@ -31,7 +32,7 @@ namespace WheelReward.Reward.View
             if (_items.TryGetValue(id, out var item))
                 return item.GetIconWorldPosition();
 
-            return transform.position;
+            return itemParent.position;
         }
 
         public void ClearAll()

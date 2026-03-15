@@ -6,6 +6,7 @@ using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
 using WheelReward.Lose.Interface;
 using WheelReward.Reward.Interface;
+using WheelReward.Progress.Interface;
 
 namespace WheelReward.Spin.Controller
 {
@@ -16,15 +17,17 @@ namespace WheelReward.Spin.Controller
         private readonly ILoseController _loseController;
         private readonly IWheelStrategy _wheelStrategy;
         private readonly IWinSlotChooser _winSlotChooser;
+        private readonly IProgressController _progressController;
 
         public SpinController(SignalBus signalBus, IRewardController rewardController, ILoseController loseController,
-            IWheelStrategy wheelStrategy, IWinSlotChooser winSlotChooser)
+            IWheelStrategy wheelStrategy, IWinSlotChooser winSlotChooser, IProgressController progressController)
         {
             _signalBus = signalBus;
             _rewardController = rewardController;
             _loseController = loseController;
             _wheelStrategy = wheelStrategy;
             _winSlotChooser = winSlotChooser;
+            _progressController = progressController;
         }
 
         public async void StartSpin()
@@ -32,14 +35,11 @@ namespace WheelReward.Spin.Controller
             try
             {
                 var wheelView = _wheelStrategy.GetCurrentWheelView();
-                var rewardConfig = _wheelStrategy.GetCurrentRewardConfig();
-
-                var winSlot = _winSlotChooser.ChooseWinSlot(rewardConfig.Rewards.Count);
-                var rewardData = rewardConfig.Rewards[winSlot];
+                var winSlot = _winSlotChooser.ChooseWinSlot(wheelView.SlotCount);
 
                 _signalBus.Fire(new OnSpinStart());
 
-                await wheelView.Spin(winSlot);
+                var rewardData = await wheelView.Spin(winSlot);
 
                 if (rewardData.IsBomb)
                 {
@@ -48,7 +48,7 @@ namespace WheelReward.Spin.Controller
                 }
 
                 var slotPos = wheelView.GetSlotWorldPosition(winSlot);
-                _rewardController.AddReward(rewardData.Id, rewardData.Name, rewardData.Image, rewardData.Count, slotPos).Forget();
+                _rewardController.AddReward(rewardData.Id, rewardData.Name, rewardData.Icon, rewardData.CurrenCount, slotPos).Forget();
             }
             catch (Exception e)
             {

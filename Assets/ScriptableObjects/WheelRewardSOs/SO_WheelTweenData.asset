@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   idleTweenSpeed: 45
   idleTweenEase: 1
-  spinTweenDuration: 5
+  spinTweenDuration: 0.1
   spinTweenEase: 12
   spinTweenExtraRotations: 4
   appearTweenDuration: 0.3
