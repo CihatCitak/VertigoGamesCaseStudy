@@ -9,9 +9,11 @@ namespace WheelReward.Reward.Model
         [SerializeField] private string id;
         [SerializeField] private Sprite image;
         [SerializeField] private int count;
+        [SerializeField] private bool isBomb;
 
         public string Id => id;
         public Sprite Image => image;
         public int Count => count;
+        public bool IsBomb => isBomb;
     }
 }

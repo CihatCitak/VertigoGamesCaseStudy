@@ -24,6 +24,7 @@ namespace WheelReward.Progress.Controller
             _progressBar = progressBar;
             _progressBarConfig = progressBarConfig;
             _signalBus.Subscribe<OnSpinEnd>(OnSpinEnd);
+            _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
             _currentStageType = GetStageType(_progress);
         }
 
@@ -44,9 +45,17 @@ namespace WheelReward.Progress.Controller
             _signalBus.Fire(new OnSpinTypeChange(newType));
         }
 
+        private void OnSpinRestart()
+        {
+            _progress = 1;
+            _currentStageType = GetStageType(_progress);
+            _progressBar.SetProgress(_progress);
+        }
+
         public void Dispose()
         {
             _signalBus.TryUnsubscribe<OnSpinEnd>(OnSpinEnd);
+            _signalBus.TryUnsubscribe<OnSpinRestart>(OnSpinRestart);
         }
     }
 }

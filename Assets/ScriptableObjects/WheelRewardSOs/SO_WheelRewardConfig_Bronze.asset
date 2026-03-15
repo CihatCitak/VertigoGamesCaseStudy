@@ -16,24 +16,32 @@ MonoBehaviour:
   - id: cash
     image: {fileID: 21300000, guid: 652edbdf9c539b849ad770d2ab7575a0, type: 3}
     count: 2000
-  - id: 
-    image: {fileID: 0}
-    count: 10
+    isBomb: 0
+  - id: bomb
+    image: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+    count: 0
+    isBomb: 1
   - id: chest_standart
     image: {fileID: 21300000, guid: fab522f025d41db4d92fa0f21dd0acf8, type: 3}
     count: 1
+    isBomb: 0
   - id: 
     image: {fileID: 0}
     count: 10
+    isBomb: 0
   - id: gold
     image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
     count: 20
-  - id: 
-    image: {fileID: 0}
-    count: 10
+    isBomb: 0
+  - id: bomb
+    image: {fileID: 21300000, guid: 634162f79c729a84798d765678d06c6c, type: 3}
+    count: 0
+    isBomb: 1
   - id: chest_super
     image: {fileID: 21300000, guid: 02cd454cdf1a3bc4d84d36f929d48fb9, type: 3}
     count: 1
+    isBomb: 0
   - id: gold
     image: {fileID: 21300000, guid: 2a52c593ec711c746bdecc021b68ba8c, type: 3}
     count: 10
+    isBomb: 0

@@ -7,5 +7,6 @@ namespace WheelReward.Reward.Interface
         void AddReward(string id, Sprite image);
         void UpdateRewardCount(string id, int count);
         Vector3 GetRewardIconWorldPosition(string id);
+        void ClearAll();
     }
 }

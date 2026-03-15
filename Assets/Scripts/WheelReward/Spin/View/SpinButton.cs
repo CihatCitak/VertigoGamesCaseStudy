@@ -16,11 +16,15 @@ namespace WheelReward.Spin.View
         private void Awake()
         {
             _signalBus.Subscribe<OnSpinEnd>(OpenButton);
+            _signalBus.Subscribe<OnSpinRestart>(OpenButton);
+            _signalBus.Subscribe<OnSpinKeepRewards>(OpenButton);
         }
 
         private void OnDestroy()
         {
             _signalBus.TryUnsubscribe<OnSpinEnd>(OpenButton);
+            _signalBus.TryUnsubscribe<OnSpinRestart>(OpenButton);
+            _signalBus.TryUnsubscribe<OnSpinKeepRewards>(OpenButton);
         }
 
         #endregion

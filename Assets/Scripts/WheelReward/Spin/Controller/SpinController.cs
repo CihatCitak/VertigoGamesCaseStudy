@@ -4,6 +4,7 @@ using UnityEngine;
 using WheelReward.Signals;
 using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
+using WheelReward.Lose.Interface;
 using WheelReward.Reward.Interface;
 
 namespace WheelReward.Spin.Controller
@@ -12,14 +13,16 @@ namespace WheelReward.Spin.Controller
     {
         private readonly SignalBus _signalBus;
         private readonly IRewardController _rewardController;
+        private readonly ILoseController _loseController;
         private readonly IWheelStrategy _wheelStrategy;
         private readonly IWinSlotChooser _winSlotChooser;
 
-        public SpinController(SignalBus signalBus, IRewardController rewardController, IWheelStrategy wheelStrategy,
-            IWinSlotChooser winSlotChooser)
+        public SpinController(SignalBus signalBus, IRewardController rewardController, ILoseController loseController,
+            IWheelStrategy wheelStrategy, IWinSlotChooser winSlotChooser)
         {
             _signalBus = signalBus;
             _rewardController = rewardController;
+            _loseController = loseController;
             _wheelStrategy = wheelStrategy;
             _winSlotChooser = winSlotChooser;
         }
@@ -37,6 +40,12 @@ namespace WheelReward.Spin.Controller
                 _signalBus.Fire(new OnSpinStart());
 
                 await wheelView.Spin(winSlot);
+
+                if (rewardData.IsBomb)
+                {
+                    _loseController.Lose();
+                    return;
+                }
 
                 var slotPos = wheelView.GetSlotWorldPosition(winSlot);
                 _rewardController.AddReward(rewardData.Id, rewardData.Image, rewardData.Count, slotPos).Forget();

@@ -8,7 +8,7 @@ using WheelReward.Reward.Interface;
 
 namespace WheelReward.Reward.Controller
 {
-    public class RewardController : IRewardController
+    public class RewardController : IRewardController, IDisposable
     {
         private readonly Dictionary<string, int> _rewards = new();
         private readonly IRewardView _rewardView;
@@ -20,6 +20,7 @@ namespace WheelReward.Reward.Controller
             _rewardView = rewardView;
             _rewardEffect = rewardEffect;
             _signalBus = signalBus;
+            _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
         }
 
         public async UniTask AddReward(string id, Sprite sprite, int count, Vector3 fromPosition)
@@ -45,6 +46,17 @@ namespace WheelReward.Reward.Controller
         public void TakeRewards()
         {
             Debug.Log("RewardController: Take rewards");
+        }
+
+        private void OnSpinRestart()
+        {
+            _rewards.Clear();
+            _rewardView.ClearAll();
+        }
+
+        public void Dispose()
+        {
+            _signalBus.TryUnsubscribe<OnSpinRestart>(OnSpinRestart);
         }
     }
 }

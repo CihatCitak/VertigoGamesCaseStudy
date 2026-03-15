@@ -11,6 +11,8 @@ namespace WheelReward.Signals
             Container.DeclareSignal<OnSpinEnd>();
             Container.DeclareSignal<OnSpinStart>();
             Container.DeclareSignal<OnSpinTypeChange>();
+            Container.DeclareSignal<OnSpinRestart>();
+            Container.DeclareSignal<OnSpinKeepRewards>();
         }
     }
 }

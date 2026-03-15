@@ -44,12 +44,14 @@ namespace WheelReward.Spin.Controller
             _goldConfig = goldConfig;
 
             _signalBus.Subscribe<OnSpinTypeChange>(OnSpinTypeChange);
+            _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
             ActivateForStage(_progressController.GetStageType(_progressController.CurrentStage));
         }
 
         public void Dispose()
         {
             _signalBus.TryUnsubscribe<OnSpinTypeChange>(OnSpinTypeChange);
+            _signalBus.TryUnsubscribe<OnSpinRestart>(OnSpinRestart);
         }
 
         #region IWheelStrategy
@@ -65,6 +67,12 @@ namespace WheelReward.Spin.Controller
         private void OnSpinTypeChange(OnSpinTypeChange signal)
         {
             ActivateForStage(signal.StageType);
+        }
+
+        private void OnSpinRestart()
+        {
+            _currentStage = StageType.Final;
+            ActivateForStage(_progressController.GetStageType(1));
         }
 
         #endregion
