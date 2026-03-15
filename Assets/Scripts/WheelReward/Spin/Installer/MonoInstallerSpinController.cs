@@ -7,6 +7,10 @@ namespace WheelReward.Spin.Installer
     {
         public override void InstallBindings()
         {
+            Container.BindInterfacesTo<RandomWinSlotChooser>()
+                .AsSingle()
+                .NonLazy();
+
             Container.BindInterfacesTo<SpinController>()
                 .AsSingle()
                 .NonLazy();

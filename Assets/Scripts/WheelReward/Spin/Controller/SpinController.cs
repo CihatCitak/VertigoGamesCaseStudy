@@ -4,23 +4,24 @@ using UnityEngine;
 using WheelReward.Signals;
 using Cysharp.Threading.Tasks;
 using WheelReward.Spin.Interface;
-using Random = UnityEngine.Random;
 using WheelReward.Reward.Interface;
 
 namespace WheelReward.Spin.Controller
 {
     public class SpinController : ISpinStarter
     {
-        private const int SlotCount = 8;
         private readonly SignalBus _signalBus;
         private readonly IRewardController _rewardController;
         private readonly IWheelStrategy _wheelStrategy;
+        private readonly IWinSlotChooser _winSlotChooser;
 
-        public SpinController(SignalBus signalBus, IRewardController rewardController, IWheelStrategy wheelStrategy)
+        public SpinController(SignalBus signalBus, IRewardController rewardController, IWheelStrategy wheelStrategy,
+            IWinSlotChooser winSlotChooser)
         {
             _signalBus = signalBus;
             _rewardController = rewardController;
             _wheelStrategy = wheelStrategy;
+            _winSlotChooser = winSlotChooser;
         }
 
         public async void StartSpin()
@@ -30,7 +31,7 @@ namespace WheelReward.Spin.Controller
                 var wheelView = _wheelStrategy.GetCurrentWheelView();
                 var rewardConfig = _wheelStrategy.GetCurrentRewardConfig();
 
-                var winSlot = Random.Range(0, SlotCount);
+                var winSlot = _winSlotChooser.ChooseWinSlot(rewardConfig.Rewards.Count);
                 var rewardData = rewardConfig.Rewards[winSlot];
 
                 _signalBus.Fire(new OnSpinStart());
