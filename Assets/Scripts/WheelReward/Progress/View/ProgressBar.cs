@@ -76,9 +76,9 @@ namespace WheelReward.Progress.View
 
                 var stageType = _progressController.GetStageType(stage);
                 if (stageType == StageType.Final)
-                    item.SetColor(config.FinalColor);
+                    item.SetColor(config.FinalAreaColor);
                 else if (stageType == StageType.Safe)
-                    item.SetColor(config.MilestoneColor);
+                    item.SetColor(config.SafeAreaColor);
             }
         }
 

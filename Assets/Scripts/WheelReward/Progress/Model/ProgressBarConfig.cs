@@ -14,16 +14,16 @@ namespace WheelReward.Progress.Model
         [SerializeField] private float barTweenDuration = 0.4f;
         [SerializeField] private float barPassedAlpha = 0.75f;
 
-        [Header("Colors")]
-        [SerializeField] private Color milestoneColor = Color.green;
-        [SerializeField] private Color finalColor = Color.yellow;
+        [Header("Progress Text Colors")]
+        [SerializeField] private Color safeAreaColor = Color.green;
+        [SerializeField] private Color finalAreaColor = Color.yellow;
 
         public int FinalStage => finalStage;
         public int MilestoneInterval => milestoneInterval;
         public float BarStepSize => barStepSize;
         public float BarTweenDuration => barTweenDuration;
         public float BarPassedAlpha => barPassedAlpha;
-        public Color MilestoneColor => milestoneColor;
-        public Color FinalColor => finalColor;
+        public Color SafeAreaColor => safeAreaColor;
+        public Color FinalAreaColor => finalAreaColor;
     }
 }

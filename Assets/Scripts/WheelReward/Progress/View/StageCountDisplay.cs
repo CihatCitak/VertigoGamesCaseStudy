@@ -82,9 +82,9 @@ namespace WheelReward.Progress.View
         private Color GetColorForStage(int stage)
         {
             var type = _progressController.GetStageType(stage);
-            if (type == StageType.Final) return config.FinalColor;
-            if (type == StageType.Safe) return config.MilestoneColor;
-            return Color.white;
+            if (type == StageType.Final) return config.FinalAreaColor;
+            if (type == StageType.Safe) return config.SafeAreaColor;
+            return Color.black;
         }
 
         private Sprite GetSpriteForStage(int stage)

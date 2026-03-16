@@ -44,7 +44,6 @@ namespace WheelReward.Spin.Controller
 
             _signalBus.Subscribe<OnSpinTypeChange>(OnSpinTypeChange);
             _signalBus.Subscribe<OnSpinRestart>(OnSpinRestart);
-            
             ActivateForStage(_progressController.GetStageType(_progressController.CurrentStage));
         }
 
