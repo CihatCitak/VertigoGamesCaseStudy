@@ -101,7 +101,6 @@ namespace WheelReward.Spin.View
         {
             _idleTween?.Kill();
             _spinTween?.Kill();
-            _appearTween?.Kill();
 
             var slotAngle = 360f / SlotCount;
             var currentZ = wheelTransform.eulerAngles.z;
